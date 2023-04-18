@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "./Logo";
 import Date from "./Date";
 import BreakingNews from "./BreakingNews";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
@@ -10,6 +11,7 @@ const Header = () => {
         <Logo />
         <Date />
         <BreakingNews />
+        <Navbar />
       </div>
     </header>
   );

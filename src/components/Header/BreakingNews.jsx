@@ -1,11 +1,14 @@
 import React from "react";
-import Button from "../buttons/Button";
 import Marquee from "react-fast-marquee";
 
 const BreakingNews = () => {
   return (
     <div className=" p-4 bg-[#F3F3F3] rounded-md flex flex-col md:flex-row items-center gap-4">
-      <Button bg={"#D72050"}>Latest</Button>
+      <button
+        className={`bg-[#D72050] rounded-sm px-5 pb-1 text-white font-medium pt-[6px]`}
+      >
+        Latest
+      </button>
       <Marquee
         speed={60}
         gradient={false}
