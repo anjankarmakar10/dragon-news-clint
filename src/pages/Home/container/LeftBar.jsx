@@ -1,10 +1,10 @@
 import React from "react";
 import Categories from "../components/Categories/Categories";
 
-const LeftBar = () => {
+const LeftBar = ({ onCatagory }) => {
   return (
-    <aside>
-      <Categories />
+    <aside className="md:sticky top-4 h-fit">
+      <Categories onCatagory={onCatagory} />
     </aside>
   );
 };
