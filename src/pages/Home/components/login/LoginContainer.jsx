@@ -8,7 +8,7 @@ const LoginContainer = ({ showTitle = true }) => {
       <h3 className="text-lg md:text-xl text-[#403F3F] font-semibold mb-4">
         {showTitle ? "Login Width" : ""}
       </h3>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 mb-3">
         <GoogleLogin />
         <GitHubLogin />
       </div>
