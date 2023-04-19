@@ -11,7 +11,7 @@ const Categories = () => {
         All Caterogy
       </h3>
 
-      <div className="flex md:flex-col flex-wrap">
+      <div className="flex md:flex-col flex-wrap gap-[2px]">
         {categories?.map((category) => (
           <div
             onClick={() => setActive(category?.name)}
