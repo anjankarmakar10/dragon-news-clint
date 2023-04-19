@@ -16,3 +16,25 @@ body {
   line-height: 1.5;
   font-weight: 400;
 }
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 25% 1fr 25%;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .home-grid {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

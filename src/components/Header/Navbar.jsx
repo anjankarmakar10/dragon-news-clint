@@ -9,8 +9,8 @@ const Navbar = () => {
   const handleMenuClicked = () => setActive((prev) => !prev);
 
   return (
-    <div className="mt-5 mb-8 flex flex-col gap-4">
-      <nav className=" flex items-center justify-between md:mb-10">
+    <div className="mt-5 mb-6 flex flex-col gap-4">
+      <nav className=" flex items-center justify-between ">
         <div className="cursor-pointer md:hidden">
           {active ? (
             <FiX onClick={handleMenuClicked} size={40} />
@@ -39,11 +39,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div
-        className={`transition-all h-0 overflow-hidden opacity-0 ${
-          active && "h-fit opacity-100"
-        }`}
-      >
+      <div className={active ? "block" : "hidden"}>
         <MobileNav />
       </div>
     </div>
