@@ -4,7 +4,7 @@ import FeedContainer from "./container/FeedContainer";
 import RightBar from "./container/RightBar";
 import LoginContainer from "./components/login/LoginContainer";
 import { useState } from "react";
-
+import Header from "../../components/Header/Header";
 const Home = () => {
   const [id, setId] = useState(0);
 
@@ -14,6 +14,7 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <div className="container w-full md:w-2/4 mx-auto px-4 lg:hidden py-2">
         <LoginContainer showTitle={false} />
       </div>

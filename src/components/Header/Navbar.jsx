@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { RxAvatar } from "react-icons/rx";
 import { FiMenu, FiX } from "react-icons/fi";
 import ButtonLogin from "../buttons/ButtonLogin";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
+
+  const { user } = useAuth();
 
   const handleMenuClicked = () => setActive((prev) => !prev);
 
@@ -21,21 +25,34 @@ const Navbar = () => {
         <div></div>
         <ul className="text-lg text-[#706F6F] hidden md:flex items-center gap-4 ">
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="#">Favorites</a>
+            <Link to="/favourite">Favourite</Link>
           </li>
         </ul>
 
         <div className="flex items-center gap-2 ">
-          <div className="cursor-pointer">
-            <RxAvatar size={40} />
-          </div>
-          <ButtonLogin>Login</ButtonLogin>
+          {user ? (
+            <Link className="cursor-pointer">
+              {user?.photoURL ? (
+                <img
+                  className="w-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              ) : (
+                <RxAvatar size={40} />
+              )}
+            </Link>
+          ) : (
+            <Link to="/login">
+              <ButtonLogin>Login</ButtonLogin>
+            </Link>
+          )}
         </div>
       </nav>
 
@@ -51,13 +68,13 @@ const MobileNav = () => {
     <nav className="bg-slate-400 p-2 rounded-md ">
       <ul className="text-lg text-[#250101] flex items-center gap-4 justify-evenly">
         <li>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#">About</a>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <a href="#">Favorites</a>
+          <Link to="/favourite">Favourite</Link>
         </li>
       </ul>
     </nav>

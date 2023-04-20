@@ -15,6 +15,7 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  background: #f3f3f3;
 }
 
 .home-grid {
@@ -44,4 +45,12 @@ body {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+input[type="checkbox"] {
+  width: 50px;
+}
+
+button:disabled {
+  background: #a19b9b;
 }
