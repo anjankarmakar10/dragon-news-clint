@@ -6,6 +6,7 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUP/SignUp";
 import AuthProvider from "./context/AuthContext";
+import PrivateRoute from "./rout/PrivateRoute";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: "favourite",
-        element: <Favourite />,
+        element: <PrivateRoute element={<Favourite />} />,
       },
       {
         path: "about",

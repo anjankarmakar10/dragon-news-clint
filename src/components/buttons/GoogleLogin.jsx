@@ -1,12 +1,18 @@
 import React from "react";
 import { ImGoogle } from "react-icons/im";
 import { useAuth } from "../../context/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
 const GoogleLogin = () => {
   const { loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
+
+  const { state } = useLocation();
+  const from = state?.path || "/";
 
   const handleLogin = async () => {
     try {
       await loginWithGoogle();
+      navigate(from);
     } catch (error) {
       console.log(error.message);
     }

@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import InputField from "../../components/Inputs/InputField";
 import ButtonSubmit from "../../components/buttons/ButtonSubmit";
 import { Link } from "react-router-dom";
+import LoginContainer from "../Home/components/login/LoginContainer";
 
 const Login = () => {
   return (
@@ -34,6 +35,7 @@ const Login = () => {
               </Link>
             </span>
           </form>
+          <LoginContainer />
         </section>
       </div>
     </>

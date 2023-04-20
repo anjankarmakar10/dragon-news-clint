@@ -9,8 +9,6 @@ const FeedContainer = ({ category }) => {
     return news?.filter((item) => +item.category_id === id);
   };
 
-  console.log(category);
-
   const allNews = +category === 0 ? news : filterNews(news, +category);
 
   return (
