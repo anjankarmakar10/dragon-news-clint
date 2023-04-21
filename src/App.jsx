@@ -7,6 +7,7 @@ import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUP/SignUp";
 import AuthProvider from "./context/AuthContext";
 import PrivateRoute from "./rout/PrivateRoute";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

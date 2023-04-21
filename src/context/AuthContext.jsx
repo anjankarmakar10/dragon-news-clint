@@ -10,6 +10,8 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   sendEmailVerification,
+  signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 const AuthContext = createContext();
 
@@ -30,8 +32,18 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, gitHubAuthProvider);
   };
 
-  const loginWithEmail = (email, password) => {
+  const createAccount = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const loginWithEmail = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logOut = () => {
+    return signOut(auth);
   };
 
   const updateName = (user, name) => {
@@ -57,9 +69,11 @@ const AuthProvider = ({ children }) => {
     user,
     loginWithGoogle,
     loginWithGitHub,
+    createAccount,
     loginWithEmail,
     updateName,
     verifyEmail,
+    logOut,
     loading,
   };
 

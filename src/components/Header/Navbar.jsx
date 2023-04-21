@@ -39,13 +39,17 @@ const Navbar = () => {
           {user ? (
             <Link className="cursor-pointer">
               {user?.photoURL ? (
-                <img
-                  className="w-10 rounded-full"
-                  src={user?.photoURL}
-                  alt=""
-                />
+                <Link to="/profile" title={user?.displayName}>
+                  <img
+                    className="w-10 rounded-full"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </Link>
               ) : (
-                <RxAvatar size={40} />
+                <Link to="/profile" title={user?.displayName}>
+                  <RxAvatar size={40} />
+                </Link>
               )}
             </Link>
           ) : (

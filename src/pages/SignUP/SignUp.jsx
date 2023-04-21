@@ -12,7 +12,7 @@ const SignUp = () => {
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { loginWithEmail, updateName, verifyEmail } = useAuth();
+  const { createAccount, updateName, verifyEmail } = useAuth();
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -56,7 +56,7 @@ const SignUp = () => {
     try {
       setError("");
       setLoading(true);
-      const { user } = await loginWithEmail(email, password);
+      const { user } = await createAccount(email, password);
       await updateName(user, name);
       await verifyEmail(user);
       setMessage("Please chack your email to verify the account");
