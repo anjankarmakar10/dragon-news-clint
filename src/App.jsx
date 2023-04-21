@@ -6,8 +6,9 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUP/SignUp";
 import AuthProvider from "./context/AuthContext";
-import PrivateRoute from "./rout/PrivateRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 import Profile from "./pages/Profile/Profile";
+import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
 
 function App() {
   return (
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "resetpassword",
+        element: <ForgetPassword />,
       },
     ],
   },

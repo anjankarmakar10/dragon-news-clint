@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Header from "../../components/Header/Header";
 import InputField from "../../components/Inputs/InputField";
 import ButtonSubmit from "../../components/buttons/ButtonSubmit";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 
