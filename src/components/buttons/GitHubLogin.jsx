@@ -1,12 +1,20 @@
 import React from "react";
 import { ImGithub } from "react-icons/im";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate, useLocation } from "react-router-dom";
+
 const GitHubLogin = () => {
   const { loginWithGitHub } = useAuth();
+
+  const navigate = useNavigate();
+
+  const { state } = useLocation();
+  const from = state?.path || "/";
 
   const handleLogin = async () => {
     try {
       await loginWithGitHub();
+      navigate(from);
     } catch (error) {
       console.log(error.message);
     }

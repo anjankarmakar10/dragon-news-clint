@@ -4,7 +4,13 @@ import {
   googleAuthProvider,
   gitHubAuthProvider,
 } from "../config/firebase";
-import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
 const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -24,6 +30,18 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, gitHubAuthProvider);
   };
 
+  const loginWithEmail = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const updateName = (user, name) => {
+    return updateProfile(user, { displayName: name });
+  };
+
+  const verifyEmail = (user) => {
+    return sendEmailVerification(user);
+  };
+
   useEffect(() => {
     const unscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
@@ -39,6 +57,9 @@ const AuthProvider = ({ children }) => {
     user,
     loginWithGoogle,
     loginWithGitHub,
+    loginWithEmail,
+    updateName,
+    verifyEmail,
     loading,
   };
 
