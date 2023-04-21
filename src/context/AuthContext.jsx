@@ -12,6 +12,7 @@ import {
   sendEmailVerification,
   signInWithEmailAndPassword,
   signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 const AuthContext = createContext();
 
@@ -40,6 +41,10 @@ const AuthProvider = ({ children }) => {
   const loginWithEmail = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const forgetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
   };
 
   const logOut = () => {
@@ -73,6 +78,7 @@ const AuthProvider = ({ children }) => {
     loginWithEmail,
     updateName,
     verifyEmail,
+    forgetPassword,
     logOut,
     loading,
   };

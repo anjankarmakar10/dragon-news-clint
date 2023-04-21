@@ -10,7 +10,7 @@ const ForgetPassword = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
-  const { createAccount } = useAuth();
+  const { forgetPassword } = useAuth();
 
   const emailRef = useRef();
 
@@ -21,7 +21,7 @@ const ForgetPassword = () => {
 
     try {
       setError("");
-      setLoading(true);
+      await forgetPassword(email);
       setMessage("Please chack your email to farther informations");
     } catch (error) {
       setError(error.message);
