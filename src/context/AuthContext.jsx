@@ -14,6 +14,7 @@ import {
   signOut,
   sendPasswordResetEmail,
 } from "firebase/auth";
+
 const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -55,6 +56,10 @@ const AuthProvider = ({ children }) => {
     return updateProfile(user, { displayName: name });
   };
 
+  const updateProfilePhoto = (user, photo) => {
+    return updateProfile(user, { photoURL: photo });
+  };
+
   const verifyEmail = (user) => {
     return sendEmailVerification(user);
   };
@@ -79,6 +84,7 @@ const AuthProvider = ({ children }) => {
     updateName,
     verifyEmail,
     forgetPassword,
+    updateProfilePhoto,
     logOut,
     loading,
   };

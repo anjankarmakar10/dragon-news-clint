@@ -37,11 +37,11 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2 ">
           {user ? (
-            <Link className="cursor-pointer">
+            <div className="cursor-pointer">
               {user?.photoURL ? (
                 <Link to="/profile" title={user?.displayName}>
                   <img
-                    className="w-10 rounded-full"
+                    className="w-10 rounded-full border-2 h-10 object-cover border-cyan-900"
                     src={user?.photoURL}
                     alt=""
                   />
@@ -51,7 +51,7 @@ const Navbar = () => {
                   <RxAvatar size={40} />
                 </Link>
               )}
-            </Link>
+            </div>
           ) : (
             <Link to="/login">
               <ButtonLogin>Login</ButtonLogin>
